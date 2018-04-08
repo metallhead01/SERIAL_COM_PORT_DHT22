@@ -24,11 +24,14 @@ app = QtGui.QApplication([])
 pg.setConfigOption('background', 'w')
 win = pg.GraphicsWindow()
 p1 = win.addPlot()
+p1.setWindowTitle('Влажность/Температура')
+p1.addLegend()
+
 
 pen1 = pg.mkPen(color='b', width=3)
 pen2 = pg.mkPen(color='r', width=3)
-curve1 = p1.plot(pen=pen1)
-curve2 = p1.plot(pen=pen2)
+curve1 = p1.plot(pen=pen1, name="Влажность")
+curve2 = p1.plot(pen=pen2, name="Температура")
 
 readData = [0.0, 0.0]
 y1 = np.zeros(1000, dtype=float)
